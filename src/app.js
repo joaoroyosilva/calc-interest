@@ -10,7 +10,7 @@ class App {
   }
 
   routes() {
-    this.server.get('/', (req, res) => res.json({ data: 'Hello!' }));
+    this.server.get('/', (req, res) => res.json({ data: 'Hello! API Works!' }));
     this.server.post('/calc', CalcController.calc);
   }
 
