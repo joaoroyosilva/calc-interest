@@ -1,9 +1,9 @@
 import { differenceInCalendarDays, parseISO } from 'date-fns';
 
 class Service {
-  calcPeriod(emission, maturity, type_calc, lack) {
+  calcPeriod(maturity, type_calc, lack) {
     const period =
-      differenceInCalendarDays(parseISO(maturity), parseISO(emission)) - lack;
+      differenceInCalendarDays(new Date(), parseISO(maturity)) - lack;
     return type_calc == 2 ? period : period / 30;
   }
 

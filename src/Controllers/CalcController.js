@@ -1,5 +1,5 @@
-import Service from '../service';
 import * as Yup from 'yup';
+import Service from '../service';
 
 class CalcController {
   async calc(req, res) {
@@ -11,7 +11,6 @@ class CalcController {
       type_calc: Yup.number(),
       type_interest: Yup.number(),
       lack: Yup.number(),
-      emission: Yup.date().required(),
       maturity: Yup.date().required(),
     });
 
@@ -27,11 +26,10 @@ class CalcController {
       type_interest = 1,
       lack = 0,
       value = 0,
-      emission,
       maturity,
     } = req.body;
 
-    const period = Service.calcPeriod(emission, maturity, type_calc, lack);
+    const period = Service.calcPeriod(maturity, type_calc, lack);
     const total_interest = Service.calcInterest(
       type_interest,
       value,
