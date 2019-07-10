@@ -1,6 +1,6 @@
 # Microserviço para cálculo de juros e multa.
 
-Serviço publicado no Heroku e pode ser consumido pelo endereço: https://calc-interest-api.herokuapp.com/
+Serviço publicado no Heroku e pode ser consumido pelo endereço: https://calc-interest-api.herokuapp.com/calc
 
 Exemplo de requisição:
 ```
