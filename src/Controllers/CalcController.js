@@ -13,18 +13,16 @@ class CalcController {
       lack: Yup.number(),
       maturity: Yup.date().required(),
     });
-    
-    const { value, fine, type_fine, interest, type_calc, type_interest, lack, maturity } = req.body;
-    
+        
     const dataNormalized = {
-      value: Number(value),
-      fine: Number(fine),
-      type_fine: Number(type_fine),
-      interest: Number(interest),
-      type_calc: Number(type_calc),
-      type_interest: Number(type_interest),
-      lack: Number(type_interest),
-      maturity
+      value: Number(req.body.value),
+      fine: Number(req.body.fine),
+      type_fine: Number(req.body.type_fine),
+      interest: Number(req.body.interest),
+      type_calc: Number(req.body.type_calc),
+      type_interest: Number(req.body.type_interest),
+      lack: Number(req.body.type_interest),
+      maturity: req.body.maturity
     }
 
     if (!(await schema.isValid(dataNormalized))) {
