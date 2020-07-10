@@ -13,6 +13,19 @@ class CalcController {
       lack: Yup.number(),
       maturity: Yup.date().required(),
     });
+    
+    const { value, fine, type_fine, interest, type_calc, type_interest, lack, maturity } = req.body;
+    
+    const dataNormalized = {
+      value: Number(value),
+      fine: Number(fine),
+      type_fine: Number(type_fine),
+      interest: Number(interest),
+      type_calc: Number(type_calc),
+      type_interest: Number(type_interest),
+      lack: Number(type_interest),
+      maturity
+    }
 
     if (!(await schema.isValid(req.body))) {
       return res.status(403).json({ error: 'Fields are not specified' });
@@ -27,7 +40,7 @@ class CalcController {
       lack = 0,
       value = 0,
       maturity,
-    } = req.body;
+    } = dataNormalized;
 
     const period = Service.calcPeriod(maturity, type_calc, lack);
     const total_interest = Service.calcInterest(
