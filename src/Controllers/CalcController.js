@@ -27,7 +27,7 @@ class CalcController {
       maturity
     }
 
-    if (!(await schema.isValid(req.body))) {
+    if (!(await schema.isValid(dataNormalized))) {
       return res.status(403).json({ error: 'Fields are not specified' });
     }
 
